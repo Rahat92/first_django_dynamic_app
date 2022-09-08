@@ -4,38 +4,33 @@ from django.http import HttpResponse
 from django.utils.text import slugify
 # Create your views here.
 
-all_posts = [
+fruits = [
   {
-    'postTitle':'কলা',
-    'postDetail':'আম হল ফলের রাজা'
+    'name':'আম',
+    'description':'আম হল ফলের রাজা !'
   },
   {
-    'postTitle':'আম',
-    'postDetail':'কলাতে থাকে অনেক ভিটামিন ।'
+    'name':'কমলা',
+    'description':'কমলাতে থাকে ভিটামিন সি ।'
   },
   {
-    'postTitle':'কমলা',
-    'postDetail':'কমলাতে থাকে ভিটামিন সি ।'
+    'name':'কাঠাল',
+    'description':'কাঠাল আমাদের জাতীয় ফল।'
   },
-  {
-    'postTitle':'কাঠাল',
-    'postDetail':'কাঠাল আমাদের জাতীয় ফল।'
-  },
-  
 ]
 
 def index(request):
   return render(request,'posts/index.html',{
-    'all_posts':all_posts
+    'fruits':fruits
   })
 
-def post(request,title):
-  postDetail = []
-  for singlePost in all_posts:
-    if (singlePost['postTitle'] == title):
-      postDetail.append(singlePost)
+def post(request,name):
+  description = []
+  for singlePost in fruits:
+    if (singlePost['name'] == name):
+      description.append(singlePost)
   return render(request,'posts/post.html',{
-    'post':postDetail[0],
-    'title':title
+    'fruit':description[0],
+    'name':name
   })
 
