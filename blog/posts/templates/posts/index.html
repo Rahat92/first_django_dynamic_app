@@ -10,7 +10,8 @@
     <div class = 'all_fruits'>
       {% for fruit in fruits %}
         {% comment %} <h2><a href = {% url 'post' fruit.id %}>{{fruit.name}}</a></h2> {% endcomment %}
-        <h2><a href = "{{ fruit.get_absolute_url }}">{{fruit.name|slice:'6:' }}</a></h2>
+        {% comment %} <h2><a href = "{{ fruit.get_absolute_url }}">{{fruit.name|slice:'6:' }}</a></h2> {% endcomment %}
+        <h2><a href = "{{ fruit.get_absolute_url }}">{{fruit.name}}</a></h2>
       {% endfor %}
     </div>
   </body>
