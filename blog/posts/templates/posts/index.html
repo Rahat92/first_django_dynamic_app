@@ -1,12 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>All posts</title>
+    <link rel = 'stylesheet' href = "{% static 'posts/posts.css' %}"
   </head>
   <body>
-    <h1>All post goes here!</h1>
-    {% for fruit in fruits %}
-      <h2><a href = {% url 'post' fruit.name %}>{{fruit.name}}</a></h2>
-    {% endfor %}
+    <h1>All fruits</h1>
+    <div class = 'all_fruits'>
+      {% for fruit in fruits %}
+        {% comment %} <h2><a href = {% url 'post' fruit.id %}>{{fruit.name}}</a></h2> {% endcomment %}
+        <h2><a href = "{{ fruit.get_absolute_url }}">{{fruit.name|slice:'6:' }}</a></h2>
+      {% endfor %}
+    </div>
   </body>
 </html>

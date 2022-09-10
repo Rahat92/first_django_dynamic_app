@@ -1,0 +1,14 @@
+.all_fruits{
+  display: flex;
+  flex-direction: column;
+  margin: 0 5rem;
+}
+
+.all_fruits a{
+  text-decoration: none;
+  margin: 0;
+
+}
+h2{
+  margin: .5rem 0;
+}

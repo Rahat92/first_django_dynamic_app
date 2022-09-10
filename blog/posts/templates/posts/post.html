@@ -1,12 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>All posts</title>
+    <link rel = 'stylesheet' href = "{% static 'posts/post.css' %}" />
   </head>
   <body>
     <h2><a href = {% url 'index' %}>মুল পাতাঃ</a></h2>
-    <h3>{{fruit.name}}:</h3>
-    <h3>{{fruit.description}}</h3>
+    <div class = 'container'>
+      <div class = 'article'>
+        <h3>{{fruit.name}}:</h3>
+        <h3>{{fruit.description}}</h3>
+      </div>
+      <div class = 'image'>
+        <img src = "{% static 'posts/images/' %}{{fruit.name|slice:'6:'}}.jpg" alt = 'furit' />
+      </div>
+    </div>
 
   </body>
 </html>
